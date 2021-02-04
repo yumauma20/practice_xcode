@@ -14,8 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var UIswitch: UISwitch!
     @IBOutlet weak var humanText: UITextField!
     
-    let humans: [String] = ["内藤","佐藤","山田","国枝","高井"]
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
     
+    var humans: [String] = ["内藤","佐藤","山田","国枝","高井"]
     var btnTimer: Timer!
     
     func startTimer() {
@@ -41,16 +45,12 @@ class ViewController: UIViewController {
     @IBAction func stop(_ sender: Any) {
         btnTimer!.invalidate()
     }
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
     @IBAction func btnsend(_ sender: Any) {
-        hello.text = "hello " + textname.text!
+        var addName: String!
+        addName = textname.text!
+        hello.text = "hello " + addName
+        humans.append(addName)
     }
     
     @IBAction func touch(_ sender: Any) {
@@ -61,6 +61,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func changeDisplay(_ sender: UIButton) {
+        let vc = SecondViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
