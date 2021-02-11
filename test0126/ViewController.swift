@@ -49,8 +49,13 @@ class ViewController: UIViewController {
     @IBAction func btnsend(_ sender: Any) {
         var addName: String!
         addName = textname.text!
-        hello.text = "hello " + addName
-        humans.append(addName)
+        if (!addName.isEmpty) {
+            hello.text = "hello " + addName
+            humans.append(addName)
+        } else {
+            hello.text = "悪い事を考えたって無駄だよ"
+        }
+        
     }
     
     @IBAction func touch(_ sender: Any) {
